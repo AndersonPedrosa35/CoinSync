@@ -1,7 +1,7 @@
 import type { NextApiRequest, NextApiResponse } from 'next'
+import getAllCryptos from '@/lib/getAllCryptos'
 
 export default async function handler(_req: NextApiRequest, res: NextApiResponse) {
-  const coinApi = process.env.COINAPI
-  const getAllCoins = await fetch(`http://rest.coinapi.io/v1/assets?apikey=${coinApi}`)
+  const getAllCoins = await getAllCryptos()
   res.status(200).json(getAllCoins)
 }

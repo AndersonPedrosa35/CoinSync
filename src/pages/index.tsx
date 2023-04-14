@@ -1,8 +1,9 @@
 import Head from 'next/head'
 import Image from 'next/image'
 import styles from '@/styles/Home.module.css'
+import getAllCryptos from '@/lib/getAllCryptos'
 
-export default function Home() {
+export default function Home({ cryptosList }) {
   return (
     <>
       <Head>
@@ -13,4 +14,15 @@ export default function Home() {
       </Head>
     </>
   )
+}
+
+export async function getStaticProps() {
+  const cryptosList = getAllCryptos()
+  return {
+    props: {
+      cryptosList,
+    },
+    revalidate: 1
+  }
+
 }

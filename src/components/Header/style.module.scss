@@ -1,0 +1,10 @@
+.header {
+  max-width: 1440px;
+  margin: 0 auto;
+  padding: 1rem 3rem;
+
+  .containerHeader {
+    display: flex;
+    justify-content: space-between;
+  }
+}

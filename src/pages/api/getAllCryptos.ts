@@ -1,7 +1,7 @@
 import type { NextApiRequest, NextApiResponse } from 'next'
-import getAllCryptos from '@/lib/getAllCryptos'
+import { getCryptosLimited } from '@/lib/getAllCryptos'
 
 export default async function handler(_req: NextApiRequest, res: NextApiResponse) {
-  const getAllCoins = await getAllCryptos()
+  const getAllCoins = await getCryptosLimited({ sizeItems: 10 })
   res.status(200).json(getAllCoins)
 }

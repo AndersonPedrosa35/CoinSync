@@ -1,9 +1,10 @@
 import Head from 'next/head'
-import Image from 'next/image'
-import styles from '@/styles/Home.module.css'
-import getAllCryptos from '@/lib/getAllCryptos'
+// import styles from '@/styles/Home.module.css'
+import { getCryptosLimited } from '@/lib/getAllCryptos'
+import Header from '@/components/Header/'
 
-export default function Home({ cryptosList }) {
+export default function Home({ cryptosList }: any) {
+  console.log(cryptosList)
   return (
     <>
       <Head>
@@ -12,17 +13,18 @@ export default function Home({ cryptosList }) {
         <meta name="viewport" content="width=device-width, initial-scale=1" />
         <link rel="icon" href="/logo.png" />
       </Head>
+      <Header />
     </>
   )
 }
 
 export async function getStaticProps() {
-  const cryptosList = getAllCryptos()
+  const cryptosList = await getCryptosLimited({ sizeItems: 10 })
   return {
     props: {
       cryptosList,
     },
-    revalidate: 1
+    revalidate: 100
   }
 
 }

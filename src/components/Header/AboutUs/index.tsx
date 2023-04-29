@@ -13,10 +13,10 @@ export default function AboutUsLinks() {
       </Link>
       { screenWidth > 480 && (
         <>
-          <Link href="#">
+          <Link href="#" className={style.linkAboutUs}>
             About us
           </Link>
-          <Link href="#">
+          <Link href="#" className={style.linkAboutUs}>
             Top Cryptos
           </Link>
         </>

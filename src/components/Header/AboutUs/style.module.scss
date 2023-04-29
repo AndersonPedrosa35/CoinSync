@@ -1,4 +1,14 @@
+@import "src/styles/index.scss";
+
 .containerAboutUs {
   display: flex;
-  justify-content: space-around;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.linkAboutUs {
+  font-size: 0.875rem;
+  line-height: 1rem;
+  color: $text_base;
+  margin-left: 2rem;
 }

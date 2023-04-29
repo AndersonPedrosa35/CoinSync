@@ -1,0 +1,96 @@
+@import 'src/styles/index.scss';
+.sectionNewsletter {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  position: relative;
+  height: 25rem;
+  background: linear-gradient(97.85deg, #FBAB34 -5.87%, #AD721A 118.06%);
+  .borderItem1 {
+    position: absolute;
+    width: 110%;
+    height: 25rem;
+    clip-path: polygon(0% 24%, 4% 20%, 8% 20%, 12% 25%, 16% 30%, 19% 35%, 22% 40%, 27% 43%, 30% 43%, 34% 43%, 38% 42%, 43% 37%, 49% 34%, 54% 30%, 59% 25%, 65% 19%, 70% 13%, 76% 9%, 82% 6%, 88% 5%, 93% 4%, 98% 1%, 100% 1%, 100% 99%, 0% 100%);
+    background: linear-gradient(180deg, rgba(251, 171, 52, 0.2) 4.4%, rgba(251, 171, 52, 0) 87.49%);
+    transform: matrix(-1, 0, 0, 1, 0, 0);
+  }
+  .borderItem2 {
+    position: absolute;
+    width: 110%;
+    height: 25rem;
+    clip-path: polygon(0% 24%, 4% 20%, 8% 20%, 12% 25%, 16% 30%, 19% 35%, 22% 40%, 27% 43%, 30% 43%, 34% 43%, 38% 42%, 43% 37%, 49% 34%, 54% 30%, 59% 25%, 65% 19%, 70% 13%, 76% 9%, 82% 6%, 88% 5%, 93% 4%, 98% 1%, 100% 1%, 100% 99%, 0% 100%);
+    background: linear-gradient(180deg, rgba(251, 171, 52, 0.2) 0%, rgba(251, 171, 52, 0) 71.26%);
+    transform: matrix(-1, 0.08, 0.22, 0.98, 0, 0);
+  }
+  .borderItem3 {
+    position: absolute;
+    width: 110%;
+    height: 25rem;
+    clip-path: polygon(0% 29%, 6% 26%, 13% 26%, 21% 27%, 26% 31%, 34% 37%, 45% 35%, 53% 29%, 64% 25%, 78% 22%, 90% 23%, 100% 22%, 100% 100%, 0% 100%);
+    background: linear-gradient(180deg, rgba(251, 171, 52, 0.2) -5.39%, rgba(251, 171, 52, 0) 83.69%);
+    transform: matrix(-1, 0.08, 0.22, 0.98, 0, 0);
+  }
+  .containerNewsletter {
+    display: flex;
+    justify-content: space-evenly;
+    align-items: center;
+    padding: 1.5rem;
+    .containerRight {
+      form {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        width: 25rem;
+      }
+      .labelInput {
+        display: flex;
+        width: 100%;
+        flex-direction: column;
+        input {
+          width: 100%;
+          background: #FFFFFF;
+          mix-blend-mode: normal;
+          box-shadow: 0px 12px 24px rgba(0, 0, 0, 0.1);
+          border-radius: 6px;
+          border: none;
+          padding: 1rem;
+          margin: 0.5rem 0 1.25rem;
+        }
+      }
+
+      .buttonSubmit {
+        width: 100%;
+        background: $primary_base;
+        border: none;
+        box-shadow: 0px 0.75rem 1.5rem rgba(0, 0, 0, 0.1);
+        border-radius: 2rem;
+        font-weight: 400;
+        font-size: 1rem;
+        line-height: 1.5rem;
+        padding: 0.75rem;
+        color: $white;
+      }
+    }
+    .containerLeft {
+      max-width: 25rem;
+      .subtitle {
+        color: $primary_200;
+        font-weight: 700;
+        font-size: 1.5rem;
+        line-height: 2rem;
+      }
+      .title {
+        font-weight: 700;
+        font-size: 2.5rem;
+        line-height: 3rem;
+        letter-spacing: -0.01em;
+        color: $white;
+      }
+      .description {
+        font-size: 1rem;
+        line-height: 1.5rem;
+        color: $white;
+      }
+    }
+  }
+}

@@ -1,0 +1,91 @@
+@import "src/styles/index.scss";
+
+.containerText {
+  max-width: 31.25rem;
+  padding: 0 2rem;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  justify-content: center;
+  .title {
+    font-weight: 700;
+    font-size: 3rem;
+    line-height: 3.5rem;
+    letter-spacing: -0.01em;
+    color: $primary_base;
+    margin-bottom: 1.5rem;
+    @include tablet {
+      font-weight: 700;
+      font-size: 2rem;
+      line-height: 2.5rem;
+      margin-bottom: 1rem;
+    }
+    @include mobile {
+      font-weight: 700;
+      font-size: 1.25rem;
+      line-height: 2rem;
+      text-align: center;
+      margin-bottom: 0.5rem;
+    }
+  }
+
+  .description {
+    font-size: 1.25rem;
+    line-height: 2rem;
+    color: $text_base;
+    margin-bottom: 2rem;
+    @include tablet {
+      font-size: 1rem;
+      line-height: 1.5rem;
+      margin-bottom: 1.5rem;
+    }
+    @include mobile {
+      font-size: 0.875rem;
+      line-height: 1.5rem;
+      text-align: center;
+      margin-bottom: 1.5rem;
+    }
+  }
+  .accountButtonSignUp {
+    display: flex;
+    align-items: center;
+    background: $primary_base;
+    border-radius: 2rem;
+    padding: 0.875rem 1.5rem;
+    border: none;
+    color: #FFF;
+    font-weight: 700;
+    font-size: 1rem;
+
+    img {
+      margin-left: 1rem;
+    }
+
+    @include mobile {
+      padding: 0.5rem 1rem;
+      align-self: center;
+      font-weight: 400;
+    }
+  }
+
+  .containerCategories {
+    display: flex;
+    justify-content: space-around;
+    width: 100%;
+    margin: 5rem 0 4rem;
+    @include tablet {
+      margin: 2.5rem 0 0;
+    }
+    @include mobile {
+      align-self: center;
+      margin: 1.5rem 0 0;
+    }
+    .categorieItem {
+      background-color: $primary_100;
+      color: $primary_base;
+      border: none;
+      padding: 0.25rem 1rem;
+      border-radius: 0.25rem;
+    }
+  }
+}

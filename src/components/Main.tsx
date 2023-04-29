@@ -1,6 +1,7 @@
 import { CryptoContext } from '@/context/cryptoContext'
 import React, { useContext, useEffect } from 'react'
 import MainBannerHero from './BannerHero/Main'
+import Footer from './Footer'
 import Header from './Header'
 import NewsLetter from './NewsLetter'
 import OurServices from './OurServices'
@@ -22,6 +23,7 @@ export default function MainHome({ cryptosList }: any) {
       <OurServices />
       <TopCryptosList />
       <NewsLetter />
+      <Footer />
     </>
   )
 }

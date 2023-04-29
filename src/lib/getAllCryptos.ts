@@ -1,67 +1,52 @@
 import { serializeFullDateInitialDay, serializeFullDateNow } from "@/utils/date"
+import cryptosList from "../utils/cryptos.json"
 
-interface RequestCoins  {
-  asset_id?: string
-  data_end?: string
-  data_orderbook_end?: string
-  data_orderbook_start?: string
-  data_quote_end?: string
-  data_quote_start?: string
-  data_start?: string
-  data_symbols_count?: number
-  data_trade_end?: string
-  data_trade_start?: string
-  id_icon?: string
-  name?: string
-  type_is_crypto?: number
-  volume_1day_usd?: number
-  volume_1hrs_usd?: number
-  volume_1mth_usd?: number
+const API_BASE_URL = "https://pro-api.coinmarketcap.com"
+const CMC_API_KEY = process.env.CMC_API_KEY as string
+
+export async function getCurrencyIconsByTerm(term: string) {
+  return fetch(`${API_BASE_URL}/v2/cryptocurrency/info?CMC_PRO_API_KEY=${CMC_API_KEY}&symbol=${term}&aux=logo,symbol,`)
 }
 
-export async function getRatesByCriptoId({ id, coinApi, time }: {id?: string, coinApi: string, time: string}) {
-  return fetch(`http://rest.coinapi.io/v1/exchangerate/${id}/USD?apikey=${coinApi}&time=${time}`)
-  .then((res) => res.json()).then((res) => { console.log(res); return res }).catch((err) => console.error(err))
-}
-
-export async function getAllCryptos({ coinApi }: { coinApi: string }) {
-  return fetch(`http://rest.coinapi.io/v1/assets?apikey=${coinApi}`)
+export async function getAllCryptos() {
+  return fetch(`${API_BASE_URL}/v1/cryptocurrency/listings/latest?CMC_PRO_API_KEY=${CMC_API_KEY}`)
     .then((res) => res.json())
 }
 
 export async function getCryptosLimited({ sizeItems }: { sizeItems: number }) {
-  const coinApi = process.env.COINAPI as string
   try {
-    const request = await getAllCryptos({ coinApi })
-    const getCryptos = await limitResultsAndAddMoreInfos({ sizeItems, request, coinApi })
-    return getCryptos
+    // const request = await getAllCryptos({ coinApi })
+    // const getCryptos = await limitResultsAndAddMoreInfos({ sizeItems, request, coinApi })
+    return cryptosList
   } catch (err) {
     console.error(err)
+    return cryptosList
   }
 }
 
-async function limitResultsAndAddMoreInfos({ sizeItems, request, coinApi }: { sizeItems: number, request: Array<RequestCoins>, coinApi: string }) {
-  let newArray: Array<RequestCoins | any> = []
-  let timeNow = serializeFullDateNow(new Date())
-  let timeInitial = serializeFullDateInitialDay(new Date())
-  for (let index = 0; index < sizeItems; index ++) {
-    if (request[index]?.type_is_crypto === 1) {
-      const itemNow: any = await getRatesByCriptoId({ id: request[index]?.asset_id, coinApi, time: timeNow})
-      const itemInitial: any = await getRatesByCriptoId({ id: request[index]?.asset_id, coinApi, time: timeInitial})
-      newArray = [...newArray, { 
-        asset_id: request[index]?.asset_id ?? '',
-        id_icon: request[index]?.id_icon ?? '',
-        name: request[index]?.name ?? '',
-        type_is_crypto: request[index]?.type_is_crypto ?? '',
-        asset_quote: itemNow?.asset_id_quote ?? '',
-        price_usd_now: itemNow?.rate ?? '',
-        time_now_day: itemNow?.time ?? '',
-        price_usd_initial: itemInitial?.rate ?? '',
-        time_initial_day: itemInitial?.time ?? ''
-      } ]
-    } else {
-      sizeItems += 1
-    }
-  }
-  return newArray
-}
+// async function limitResultsAndAddMoreInfos({ sizeItems, request, coinApi }: { sizeItems: number, request: Array<RequestCoins>, coinApi: string }) {
+//   let newArray: Array<RequestCoins | any> = []
+//   let timeNow = serializeFullDateNow(new Date())
+//   let timeInitial = serializeFullDateInitialDay(new Date())
+//   // Um laço de repetição para executar uma requisição sobre cada moeda afim de obter informações de preço para calcular a variação da moeda no dia
+//   for (let index = 0; index < sizeItems; index ++) {
+//     if (request[index]?.type_is_crypto === 1) {
+//       const itemNow: any = await getRatesByCriptoId({ id: request[index]?.asset_id, coinApi, time: timeNow})
+//       const itemInitial: any = await getRatesByCriptoId({ id: request[index]?.asset_id, coinApi, time: timeInitial})
+//       newArray = [...newArray, { 
+//         asset_id: request[index]?.asset_id ?? '',
+//         id_icon: request[index]?.id_icon ?? '',
+//         name: request[index]?.name ?? '',
+//         type_is_crypto: request[index]?.type_is_crypto ?? '',
+//         asset_quote: itemNow?.asset_id_quote ?? '',
+//         price_usd_now: itemNow?.rate ?? '',
+//         time_now_day: itemNow?.time ?? '',
+//         price_usd_initial: itemInitial?.rate ?? '',
+//         time_initial_day: itemInitial?.time ?? ''
+//       } ]
+//     } else {
+//       sizeItems += 1
+//     }
+//   }
+//   return newArray
+// }

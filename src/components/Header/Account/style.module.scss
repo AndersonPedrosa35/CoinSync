@@ -1,0 +1,21 @@
+@import "src/styles/index.scss";
+
+.containerAccount {
+  display: flex;
+  align-items: center;
+  justify-content: space-around;
+  .accountButtonSignUp {
+    background: $primary_base;
+    color: $white;
+    border-radius: 2rem;
+    border: none;
+    padding: 0.5rem 1rem;
+  }
+  
+  .accountButtonSignIn {
+    color: $text_base;
+    border: none;
+    background-color: transparent;
+    padding: 0.5rem 1rem;
+  }
+}

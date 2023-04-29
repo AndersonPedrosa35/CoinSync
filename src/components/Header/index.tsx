@@ -1,6 +1,6 @@
 import { useMobile } from '@/utils/useMobile'
 import React from 'react'
-import AboutUsLinks from './AboutUs/AboutUsLinks'
+import AboutUsLinks from './AboutUs'
 import Account from './Account'
 import Menu from './Menu'
 import Quotes from './Quotes'
@@ -12,6 +12,7 @@ export default function Header() {
     <header className={style.header}>
       <section className={style.containerHeader}>
       <AboutUsLinks />
+      { screenWidth > 1024 && <div /> }
       { screenWidth > 1024 && <Quotes /> }
       { screenWidth > 480 ? <Account /> : <Menu /> }
       </section>

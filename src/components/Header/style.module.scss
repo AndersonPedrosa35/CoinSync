@@ -1,10 +1,12 @@
+@import "src/styles/index.scss";
+
 .header {
-  max-width: 1440px;
-  margin: 0 auto;
-  padding: 1rem 3rem;
+  @include container-main;
 
   .containerHeader {
     display: flex;
     justify-content: space-between;
+    align-items: center;
+    padding: 1.25rem 3rem;
   }
 }

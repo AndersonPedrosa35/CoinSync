@@ -2,9 +2,9 @@
 .sectionNewsletter {
   display: flex;
   align-items: center;
-  justify-content: center;
   position: relative;
   height: 25rem;
+  width: 100%;
   background: linear-gradient(97.85deg, #FBAB34 -5.87%, #AD721A 118.06%);
   .borderItem1 {
     position: absolute;
@@ -35,6 +35,7 @@
     justify-content: space-evenly;
     align-items: center;
     padding: 1.5rem;
+    width: 100%;
     .containerRight {
       form {
         display: flex;
@@ -46,6 +47,8 @@
         display: flex;
         width: 100%;
         flex-direction: column;
+        font-size: 0.875rem;
+        color: $white;
         input {
           width: 100%;
           background: #FFFFFF;

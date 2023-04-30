@@ -36,12 +36,20 @@
     align-items: center;
     padding: 1.5rem;
     width: 100%;
+    @include mobile {
+      flex-direction: column;
+    }
     .containerRight {
       form {
         display: flex;
         flex-direction: column;
         align-items: center;
-        width: 25rem;
+        max-width: 25rem;
+        width: 100%;
+        min-width: 17.5rem;
+        @include desktop {
+          width: 25rem;
+        }
       }
       .labelInput {
         display: flex;
@@ -76,11 +84,18 @@
     }
     .containerLeft {
       max-width: 25rem;
+      @include tablet {
+        max-width: 20rem;
+      }
       .subtitle {
         color: $primary_200;
         font-weight: 700;
         font-size: 1.5rem;
         line-height: 2rem;
+        @include mobile {
+          font-size: 1rem;
+          line-height: 1.5rem;
+        }
       }
       .title {
         font-weight: 700;
@@ -88,6 +103,10 @@
         line-height: 3rem;
         letter-spacing: -0.01em;
         color: $white;
+        @include mobile {
+          font-size: 1.5rem;
+          line-height: 2rem;
+        }
       }
       .description {
         font-size: 1rem;

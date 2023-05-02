@@ -14,7 +14,7 @@ export default function NewsLetter() {
           <p className={style.description}>Lorem ipsum dolor sit amet, consectetur adipiscing elit ut aliquam, purus sit amet luctus venenatis, lectus magna fringilla urna, porttitor</p>
         </section>
         <section className={style.containerRight}>
-          <form>
+          <form onSubmit={(e) => e.preventDefault()}>
             <label htmlFor='email' className={style.labelInput}>
               Email
               <input id='email' type="email" placeholder='Email'/>

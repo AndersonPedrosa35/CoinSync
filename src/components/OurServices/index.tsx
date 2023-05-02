@@ -1,4 +1,6 @@
+import { useMobile } from '@/utils/useMobile'
 import React from 'react'
+import { Carousel } from 'react-responsive-carousel'
 import OurServiceItem from './OurServiceItem'
 import style from "./style.module.scss"
 
@@ -39,13 +41,24 @@ function arrayElementShouldCapture(array: Array<any>) {
 }
 
 export default function OurServices() {
+  const { screenWidth } = useMobile()
   const indexCapture = arrayElementShouldCapture(items)
   return (
     <section className={style.containerOurServices}>
       <section className={style.containerLeft}>
-        {items.map((item: any, index) => (
+        { screenWidth > 480 ? items.map((item: any, index) => (
+          <OurServiceItem className={ indexCapture.includes(index) ? "spaceLeft" : '' } key={index} {...item} />
+        )) : (
+          <Carousel
+            className='carroselOurServices'
+            swipeScrollTolerance={5}
+          >
+            {items.map((item: any, index) => (
           <OurServiceItem className={ indexCapture.includes(index) ? "spaceLeft" : '' } key={index} {...item} />
         ))}
+          </Carousel>
+        )
+      }
       </section>
       <section className={style.containerRight}>
         <OurServiceItem

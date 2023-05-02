@@ -9,4 +9,33 @@
     align-items: center;
     padding: 1.25rem 3rem;
   }
+
+  .containerQuotes {
+    display: flex;
+    align-items: center;
+    overflow: hidden;
+    max-width: 80%;
+    margin: 0 auto;
+    @include desktop {
+      max-width: 100%;
+    }
+  }
+
+  .containerQuote {
+    display: flex; 
+    align-items: center;
+    margin: 0.5rem;
+  }
+
+  .containerPrice {
+    display: flex;
+    align-items: center;
+  }
+
+  .symbol {
+    margin-right: 1rem;
+  }
+  .price {
+    margin-right: 1rem;
+  }
 }

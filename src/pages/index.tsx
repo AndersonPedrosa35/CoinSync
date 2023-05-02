@@ -4,7 +4,6 @@ import ProviderCryptos from '@/context/cryptoContext'
 import MainHome from '@/components/Main'
 
 export default function Home({ cryptosList }: any) {
-  console.log(cryptosList)
   return (
     <ProviderCryptos>
       <>

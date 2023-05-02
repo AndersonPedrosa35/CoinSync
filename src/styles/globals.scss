@@ -1,3 +1,5 @@
+@import "./index.scss";
+
 * {
   box-sizing: border-box;
   padding: 0;
@@ -36,6 +38,9 @@ a {
   align-items: center;
 
   .carroselBanner {
+    @include mobile {
+      display: none;
+    }
     .carousel {
       display: none;
     }
@@ -69,4 +74,15 @@ a {
     }
   }
   
+}
+
+.carroselOurServices .slider-wrapper .slider {
+  display: flex;
+
+  .slide {
+    margin: 0 1rem;
+    &::marker {
+      color: transparent;
+    }
+  }
 }

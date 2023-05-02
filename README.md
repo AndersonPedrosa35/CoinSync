@@ -1,13 +1,25 @@
+### CoinSync 
+
 This is a [Next.js](https://nextjs.org/) project bootstrapped with [`create-next-app`](https://github.com/vercel/next.js/tree/canary/packages/create-next-app).
 
 ## Getting Started
 
-First, run the development server:
+First, install dependencies:
+```bash
+npm install
+# or
+yarn
+```
+
+Create the enviroment variables:
+Double this file ```.env.example``` with name ```.env``` and insert the [CoinMarketCap secure key](https://coinmarketcap.com/api/)
+
+Run the development server:
 
 ```bash
-npm run dev
+npm run next dev
 # or
-yarn dev
+yarn next dev
 # or
 pnpm dev
 ```

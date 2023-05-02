@@ -17,25 +17,38 @@
     max-width: 80%;
     margin: 0 auto;
     @include desktop {
-      max-width: 100%;
+      margin: 0;
+      padding: 0;
+      max-width: 37%;
     }
   }
 
   .containerQuote {
     display: flex; 
     align-items: center;
-    margin: 0.5rem;
+    margin: 0.75rem;
   }
 
   .containerPrice {
     display: flex;
     align-items: center;
+    .price {
+      margin-right: 0.5rem;
+    }
+    
+    .price, .variation {
+      font-weight: 400;
+      font-size: 12px;
+      line-height: 14px;
+      color: $secondary_800;
+    }
   }
 
   .symbol {
-    margin-right: 1rem;
-  }
-  .price {
-    margin-right: 1rem;
+    margin-right: 0.5rem;
+    font-weight: 400;
+    font-size: 12px;
+    line-height: 14px;
+    color: $secondary_800;
   }
 }

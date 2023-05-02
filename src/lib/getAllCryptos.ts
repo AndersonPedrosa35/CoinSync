@@ -43,6 +43,7 @@ interface CoinMarketCapListing {
 
 export async function getCurrencyIconsByTerm(term: string) {
   return fetch(`${API_BASE_URL}/v2/cryptocurrency/info?CMC_PRO_API_KEY=${CMC_API_KEY}&symbol=${term}&aux=logo`)
+  .then((res) => res.json())
 }
 
 export async function getAllCryptos() {
@@ -73,7 +74,7 @@ async function limitResultsAndAddMoreInfos({ sizeItems, request }: { sizeItems: 
         symbol: request?.data[index]?.symbol ?? '',
         quote: request?.data[index]?.quote ?? '',
         last_updated: request?.data[index]?.last_updated ?? '',
-        logo_image: getLogo?.data?.[request?.data[index]?.symbol]?.[0]?.logo ?? '',
+        logo_image: getLogo?.data[request?.data[index]?.symbol]?.[0]?.logo ?? '',
       } ]
   }
   return newArray
